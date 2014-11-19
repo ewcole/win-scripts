@@ -6,7 +6,7 @@
 @echo off
 :: Loop through the temporary directories and 
 :: purge each one.
-for /d %%d in ("%tmp%" "%temp%" c:\temp) do (
+for /d %%d in ("%tmp%") do (
    call :purge_temp "%%~d"
 )
 goto :eof
