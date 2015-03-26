@@ -15,7 +15,7 @@ println "root=${root.getCanonicalFile()}"
 /** Should we show this file? */
 def showFile = {
   File f ->
-    !(f.name =~ /^(\..*)|#.*#|.*~|.*junk.*|.*\.log$/) as Boolean
+    !(f.name =~ /^(\..*)|#.*#|.*~|.*junk.*|.*\.log|.*\.class$/) as Boolean
 }
 
 /** Should we print this directory? */
