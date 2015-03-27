@@ -1,4 +1,5 @@
 def fileList = "git ls-files".execute().text
+def submoduleList = "git ls-files --stage | grep 160000".execute().text
 def allFiles = new ConfigObject()
 
 def readFiles;
@@ -50,7 +51,7 @@ def printDir(ConfigObject cfg, int level, String dirName, String path) {
     cfg.dir.each {
       subDirName, dirContents ->
         printDir(dirContents, level, "$dirName/$subDirName", 
-                 "$path/$subDirName")
+                 "$path$subDirName/")
     }
   }
 }
@@ -80,7 +81,7 @@ println """#+TITLE: Working Files
 #+HTML_LINK_UP:
 #+HTML_MATHJAX:
 #+INFOJS_OPT:
-#+LATEX_HEADER:"""
+#+LATEX_HEADER:""".replaceAll("\r?\n", System.getProperty('line.separator'))
 }
 printHeader()
 printDir(allFiles, 1, "Files", "");
