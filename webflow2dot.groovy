@@ -24,7 +24,14 @@ if (!input.exists()) {
 /** How to portray the states */
 def boxAttrs = [
   'action-state': [shape: "box"],
-  'decision-state': [shape: "diamond"],
+  'decision-state': [shape: "record",
+                     labelRule: {
+      state ->
+        String testText = state.@test as String
+        if (testText?.size()) {
+          return "{${state.@label}|$testText}"
+        } else return "${state.@label}"
+    }],
   'end-state': [shape: "box"],
   'global-transitions': [shape: "box"],
   'on-start': [shape: "box"],
@@ -37,7 +44,12 @@ def showStateBox = {
     def boxId = "${state.@id}"
     if (boxId.size()) {
       def boxName = boxId?:state.name()
-      def boxRules = boxAttrs[state.name()] + [label: boxName]
+      String boxLabel = boxName
+      if (boxAttrs[state.name()].labelRule) {
+        boxLabel = boxAttrs[state.name()].labelRule(state);
+      }
+      def boxRules = boxAttrs[state.name()] + [label: boxLabel]
+      boxRules.remove('labelRule')
       def attrString = boxRules.collect {
         key, value ->
           "$key=$value"
@@ -75,8 +87,12 @@ extendElem('decision-state') {
     def id = state.@id as String
     state.if.each {
         f ->
+          def testCode = f.@test as String
           def thenId = f.@then as String
           def elseId = f.@else as String
+          if (testCode?.size()) {
+            
+          }
           if (thenId?.size()) {
             w.println "  $id -> $thenId [label=\"then\"]"
           }
@@ -101,7 +117,7 @@ output.withWriter {
           // println ">> $name -> ${x.getClass()}"
           rule(elem, o)
         } else {
-          println ">${name}"
+          println "> no rule for ${name}"
         }
     }
     o.println "}"
