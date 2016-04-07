@@ -31,13 +31,22 @@ System.in.readLines().each {
 } 
 //debug allFiles
 
+String getProtocol(String fileName) {
+  def ext = fileName.replaceAll(/.*\./,'').toLowerCase();
+  // println "# ext = $ext"
+  def extList = ['html': 'file+emacs']
+  String protocol = extList.containsKey(ext)?extList[ext]:'file'
+  //println "# protocol=$protocol"
+  return protocol
+};
+
 def printDir(ConfigObject cfg, int level, String dirName, String path) {
   debug "# in printDir(${cfg.keySet()}, $level, $dirName, $path)"
   debug "cfg=$cfg"
   if (cfg.files.size() || cfg.dir.keySet().size() > 1) {
     println "${'*' * level} $dirName"
     cfg.files.each {
-      println "- [[file:$path$it][$it]]"
+      println "- [[${getProtocol(it)}:$path$it][$it]]"
     }
     debug "# cfg.dir=${cfg.dir.keySet()}"
     cfg.dir.keySet().each {
