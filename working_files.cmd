@@ -1,3 +1,3 @@
 @echo off
-gitWorkingFiles | t working_files.org
+gitWorkingFiles | t working_files.org > NUL
 

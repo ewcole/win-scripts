@@ -5,6 +5,6 @@ setlocal
     ) else (
         set tmpfile="%~1"
     )
-    gawk 1 | tee "%tmpfile%"
+    tee "%tmpfile%"
     runemacs "%tmpfile%"
 endlocal
