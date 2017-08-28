@@ -1,2 +1,2 @@
 @echo off
-start http://google.com/search?q=%*
+start "" "http://google.com/search?q=%*"
