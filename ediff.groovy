@@ -39,6 +39,11 @@ cli.r(longOpt: "revision", "Compare with previous revisions")
 def opt = cli.parse(args);
 String emacsCmd = "cmd /c start runemacs "
 
+def spawn = {
+  String text ->
+  println "$text".execute().text
+}
+
 if (opt?.h) {
   cli.usage()
 } else if (opt?.r) {
@@ -48,7 +53,7 @@ if (opt?.h) {
     def r = '\\'
     def fileName = f.toString().replace(r, '/');
     def elScript = "(ediff-revision \"$fileName\")".replace('"', '\\"')
-    println "$emacsCmd --eval \"$elScript\"".execute().text
+    spawn("$emacsCmd --eval \"$elScript\"");
   }
 } else {
   def fl = opt.arguments().collect {
@@ -59,7 +64,7 @@ if (opt?.h) {
   println fl;
   if (fl.size() == 2) {
     def elScript = "(ediff \"${fl[0]}\" \"${fl[1]}\")".replace('"', '\\"')
-    println "$emacsCmd --eval \"$elScript\"".execute().text
+    spawn("$emacsCmd --eval \"$elScript\"");
   } else {
     cli.usage()
   }
