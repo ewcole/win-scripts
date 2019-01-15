@@ -23,20 +23,33 @@ if (!input.exists()) {
 
 /** How to portray the states */
 def boxAttrs = [
-  'action-state': [shape: "box"],
-  'decision-state': [shape: "record",
+  'action-state': [shape: "record",
+                   color: "blue",
+                   labelRule: {state ->
+      String stateId = "${state.@id}";
+      String evals = state.evaluate*.collect {it.@expression as String}.flatten().
+                     collect {"<tr><td>eval $it</td></tr>"}.join('');
+      "<<table><tr><td><b>${stateId}</b></td></tr>${evals}</table>>"
+    }],
+  'decision-state': [shape: "diamond",
                      labelRule: {
       state ->
-        String testText = state.@test as String
-        if (testText?.size()) {
-          return "{${state.@label}|$testText}"
-        } else return "${state.@label}"
+        String testText = state.if*.@test as String
+        String stateLabel = "${state.@id}".size()?
+          "${state.@id}":'"decision-state"';
+        // if (testText?.size()) {
+        //   return "\"${stateLabel}\\n$testText}\""
+        // } else 
+      return "\"${stateLabel}\""
     }],
   'end-state': [shape: "box"],
   'global-transitions': [shape: "box"],
   'on-start': [shape: "box"],
   'subflow-state': [shape: "box"],
-  'view-state': [shape: "box"],
+  'view-state': [shape: "note"],
+  'var':   [shape: "octagon",
+            labelRule: {state -> "${state.@name}"}],
+  'input': [shape: "box", color: "blue"]
 ]
 
 def showStateBox = {
@@ -87,17 +100,17 @@ extendElem('decision-state') {
     def id = state.@id as String
     state.if.each {
         f ->
-          def testCode = f.@test as String
+          def testCode = (f.@test as String).replaceAll(/ and/, '\\\\nand');
           def thenId = f.@then as String
           def elseId = f.@else as String
           if (testCode?.size()) {
-            
+              
           }
           if (thenId?.size()) {
-            w.println "  $id -> $thenId [label=\"then\"]"
+            w.println "  $id -> $thenId [label=\"${testCode}\"]"
           }
           if (elseId?.size()) {
-            w.println "  $id -> $elseId [label=\"else\"]"
+            w.println "  $id -> $elseId [label=\"not(${testCode})\"]"
           }
       }
 }
