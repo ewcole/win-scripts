@@ -33,7 +33,9 @@ fileList.readLines().each {
 String getProtocol(String fileName) {
   def ext = fileName.replaceAll(/.*\./,'').toLowerCase();
   // println "# ext = $ext"
-  def extList = ['html': 'file+emacs']
+  def extList = ['html': 'file+emacs',
+                 'pdf':  'file+sys',
+                 'service': 'file+emacs']
   String protocol = extList.containsKey(ext)?extList[ext]:'file'
   //println "# protocol=$protocol"
   return protocol
@@ -70,12 +72,6 @@ println """#+TITLE: Working Files
 #+STARTUP: content
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
-#+OPTIONS: e:t email:nil f:t inline:t num:nil p:nil pri:nil stat:t
-#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:1 todo:t |:t
-#+CREATOR: Emacs 24.2.1 (Org mode 8.2.6)
-#+DESCRIPTION:
-#+EXCLUDE_TAGS: noexport
-#+KEYWORDS:
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
@@ -84,13 +80,7 @@ println """#+TITLE: Working Files
 #+CREATOR: <a href=\"http://www.gnu.org/software/emacs/\">Emacs</a> 24.2.1 (<a href=\"http://orgmode.org\">Org</a> mode 8.2.6)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
-#+HTML_HEAD:
-#+HTML_HEAD_EXTRA:
-#+HTML_LINK_HOME:
-#+HTML_LINK_UP:
-#+HTML_MATHJAX:
-#+INFOJS_OPT:
-#+LATEX_HEADER:""".replaceAll("\r?\n", System.getProperty('line.separator'))
+""".replaceAll("\r?\n", System.getProperty('line.separator'))
 }
 printHeader()
 printDir(allFiles, 1, "Files", "");

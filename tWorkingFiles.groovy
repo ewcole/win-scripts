@@ -1,4 +1,4 @@
-def submoduleList = "git ls-files --stage | grep 160000".execute().text
+// def submoduleList = "git ls-files --stage | grep 160000".execute().text
 def allFiles = new ConfigObject()
 
 def crlf = System.getProperty('line.separator');
@@ -42,13 +42,24 @@ String getProtocol(String fileName) {
   return protocol
 };
 
+String getEditLink(String path, String fileName) {
+  String protocol = getProtocol(fileName);
+  String link = "";
+  (protocol =~ /(.*)\+(.*)/).each {
+    m ->
+    if (m[2] == 'emacs') {
+      link += " ([[file+sys:$path$fileName][start]])"
+    }
+  }
+  return link;
+}
 def printDir(ConfigObject cfg, int level, String dirName, String path) {
   debug "# in printDir(${cfg.keySet()}, $level, $dirName, $path)"
   debug "cfg=$cfg"
   if (cfg.files.size() || cfg.dir.keySet().size() > 1) {
     println "${'*' * level} $dirName"
     cfg.files.each {
-      println "- [[${getProtocol(it)}:$path$it][$it]]"
+      println "- [[${getProtocol(it)}:$path$it][$it]]${getEditLink(path,it)}"
     }
     debug "# cfg.dir=${cfg.dir.keySet()}"
     cfg.dir.keySet().each {
@@ -74,12 +85,6 @@ println """#+TITLE: Working Files
 #+STARTUP: showeverything
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
-#+OPTIONS: e:t email:nil f:t inline:t num:nil p:nil pri:nil stat:t
-#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:1 todo:t |:t
-#+CREATOR: Emacs 24.2.1 (Org mode 8.2.6)
-#+DESCRIPTION:
-#+EXCLUDE_TAGS: noexport
-#+KEYWORDS:
 #+LANGUAGE: en
 #+SELECT_TAGS: export
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
