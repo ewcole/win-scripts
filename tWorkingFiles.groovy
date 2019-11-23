@@ -34,7 +34,9 @@ System.in.readLines().each {
 String getProtocol(String fileName) {
   def ext = fileName.replaceAll(/.*\./,'').toLowerCase();
   // println "# ext = $ext"
-  def extList = ['html': 'file+emacs']
+  def extList = ['html': 'file+emacs',
+                 'pdf':  'file+sys',
+                 'service': 'file+emacs']
   String protocol = extList.containsKey(ext)?extList[ext]:'file'
   //println "# protocol=$protocol"
   return protocol
