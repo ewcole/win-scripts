@@ -1,5 +1,8 @@
 def fileList = "git ls-files".execute().text
 def submoduleList = "git ls-files --stage | grep 160000".execute().text
+def gitBranch = "git branch".execute().text.readLines().grep {it =~ /^\*/}.collect {
+  it.replaceAll(/^\* /,'')
+}.first();
 def allFiles = new ConfigObject()
 
 def readFiles;
@@ -80,7 +83,27 @@ println """#+TITLE: Working Files
 #+CREATOR: <a href=\"http://www.gnu.org/software/emacs/\">Emacs</a> 24.2.1 (<a href=\"http://orgmode.org\">Org</a> mode 8.2.6)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
+
 """.replaceAll("\r?\n", System.getProperty('line.separator'))
 }
+
+def printGitState = {
+"""* Git
+- current branch :: ${gitBranch}
+** Remotes""".readLines().each {
+    println it
+}
+  // Fetch Remotes
+  "git config --local -l".execute().text.readLines().grep {
+    it =~ /^remote\..*\.url/
+  }.collect {
+    rm ->
+    (rm =~ /^remote\.([^.]*)\.url=(.*)/).each {
+      m -> println "- ${m[1]} :: ${m[2]}"
+    }
+  }
+
+}
 printHeader()
+// printGitState()
 printDir(allFiles, 1, "Files", "");
