@@ -45,7 +45,11 @@ def boxAttrs = [
   'end-state': [shape: "box"],
   'global-transitions': [shape: "box"],
   'on-start': [shape: "box"],
-  'subflow-state': [shape: "box"],
+  'subflow-state': [shape: "rarrow",
+                    labelRule: {
+      state ->
+      "\"${state.@id} subflow\""
+    }],
   'view-state': [shape: "note"],
   'var':   [shape: "octagon",
             labelRule: {state -> "${state.@name}"}],
