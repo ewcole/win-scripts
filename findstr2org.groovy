@@ -97,6 +97,7 @@ def printDir(ConfigObject cfg, int level, String dirName, String path) {
 
 def printHeader = {
 println """#+TITLE: Working Files
+* Config   :noexport:
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline num:nil
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
 #+LANGUAGE: en
