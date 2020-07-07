@@ -8,18 +8,19 @@ def cli = new CliBuilder(usage: """which [--help] <commandName>
 Give the directory and name of the file that is executed
 when you run the command.
 
-    --help - display this message
     <commandName>  The name of the program
+
 """)
 cli.h(longOpt: "help", "display this message");
+cli.a(longOpt: "all", "print all matches");
 def opt = cli.parse(args);
 
-if (!opt || !(args.size())) {
-  usage();
+if (!opt || !(opt.arguments()?.size())) {
+  cli.usage();
   return;
 }
 // Get the name of the command we will search for.
-String command = args[0];
+String command = opt.arguments().first();
 // Now, get the PATH from windows (it might be easier to
 //    take the path from the environment variable, but this
 //    is how I did it first).
@@ -61,5 +62,10 @@ def exe = path.inject([]) {
     return exeList;
 }
 if (exe.size()) {
-  println exe.first();
+  if (opt.a) {
+    // System.err.println('print all');
+    exe.each {println it}
+  } else {
+    println exe.first();
+  }
 }
