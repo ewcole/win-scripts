@@ -1,3 +1,4 @@
 @echo off
-gitWorkingFiles | t working_files.org > NUL
+gitWorkingFiles > working_files.org
+runemacs working_files.org --eval (read-only-mode)
 
