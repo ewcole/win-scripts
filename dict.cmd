@@ -1,0 +1,1 @@
+start https://www.dictionary.com/browse/%*?s=t
