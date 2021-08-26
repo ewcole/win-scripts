@@ -82,10 +82,10 @@ def printDir(ConfigObject cfg, int level, String dirName, String path) {
 
 def printHeader = {
 println """#+TITLE: Working Files
-#+STARTUP: showeverything
+* Config    :noexport:
+#+STARTUP: content
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
 #+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
-#+LANGUAGE: en
 #+SELECT_TAGS: export
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
 #+OPTIONS: html-preamble:nil html-scripts:t html-style:t
@@ -93,12 +93,6 @@ println """#+TITLE: Working Files
 #+CREATOR: <a href=\"http://www.gnu.org/software/emacs/\">Emacs</a> 24.2.1 (<a href=\"http://orgmode.org\">Org</a> mode 8.2.6)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
-#+HTML_HEAD:
-#+HTML_HEAD_EXTRA:
-#+HTML_LINK_HOME:
-#+HTML_LINK_UP:
-#+HTML_MATHJAX:
-#+INFOJS_OPT:
 #+LATEX_HEADER:""".replaceAll("\r?\n", System.getProperty('line.separator'))
 }
 printHeader()
