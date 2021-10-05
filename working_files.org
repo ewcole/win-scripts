@@ -1,0 +1,79 @@
+#+TITLE: Working Files
+* Config    :noexport:
+#+STARTUP: content
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:{} arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
+#+OPTIONS: html-preamble:nil html-scripts:t html-style:t
+#+OPTIONS: html5-fancy:nil tex:t
+#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)
+#+HTML_CONTAINER: div
+#+HTML_DOCTYPE: xhtml-strict
+
+
+* Files
+- [[file:.gitignore][.gitignore]]
+- [[file:.hgignore][.hgignore]]
+- [[file:FindPortProcesses.groovy][FindPortProcesses.groovy]]
+- [[file:GroovyWrapper.groovy][GroovyWrapper.groovy]]
+- [[file:ListFiles.groovy][ListFiles.groovy]]
+- [[file:ListThumbDrives.ps1][ListThumbDrives.ps1]]
+- [[file:README.md][README.md]]
+- [[file:cal.groovy][cal.groovy]]
+- [[file:cdGrails.cmd][cdGrails.cmd]]
+- [[file:cdt.cmd][cdt.cmd]]
+- [[file:create_git_aliases.cmd][create_git_aliases.cmd]]
+- [[file:csv2xml.pl][csv2xml.pl]]
+- [[file:ddg.cmd][ddg.cmd]]
+- [[file:edge.cmd][edge.cmd]]
+- [[file:ediff.groovy][ediff.groovy]]
+- [[file:editthese.cmd][editthese.cmd]]
+- [[file:eject_drive.cmd][eject_drive.cmd]]
+- [[file:eject_drive.ps1][eject_drive.ps1]]
+- [[file:findexec.pl][findexec.pl]]
+- [[file:findstr2org.groovy][findstr2org.groovy]]
+- [[file:freeDrives.groovy][freeDrives.groovy]]
+- [[file:getPath.groovy][getPath.groovy]]
+- [[file:gitWorkingFiles.groovy][gitWorkingFiles.groovy]]
+- [[file:google.cmd][google.cmd]]
+- [[file:grails3.cmd][grails3.cmd]]
+- [[file:grailsWorkingFiles.groovy][grailsWorkingFiles.groovy]]
+- [[file:greek.cmd][greek.cmd]]
+- [[file:killFirefox.cmd][killFirefox.cmd]]
+- [[file:last_boot_time.cmd][last_boot_time.cmd]]
+- [[file:last_boot_time.ps1][last_boot_time.ps1]]
+- [[file:latin.cmd][latin.cmd]]
+- [[file:lein.bat][lein.bat]]
+- [[file:listThumbDrives.cmd][listThumbDrives.cmd]]
+- [[file:maven.cmd][maven.cmd]]
+- [[file:mvnFind.cmd][mvnFind.cmd]]
+- [[file:newcmd.cmd][newcmd.cmd]]
+- [[file:nextFreeDrive.cmd][nextFreeDrive.cmd]]
+- [[file:printables.groovy][printables.groovy]]
+- [[file:ptitle.cmd][ptitle.cmd]]
+- [[file:purge_temp.cmd][purge_temp.cmd]]
+- [[file:roots.cmd][roots.cmd]]
+- [[file:roots.groovy][roots.groovy]]
+- [[file:scheduleRestart.groovy][scheduleRestart.groovy]]
+- [[file:sha1sum.groovy][sha1sum.groovy]]
+- [[file:show_win_classes.cmd][show_win_classes.cmd]]
+- [[file:substHere.cmd][substHere.cmd]]
+- [[file:t.cmd][t.cmd]]
+- [[file:tWorkingFiles.groovy][tWorkingFiles.groovy]]
+- [[file:test_groovy.cmd][test_groovy.cmd]]
+- [[file:today.cmd][today.cmd]]
+- [[file:tolower.cmd][tolower.cmd]]
+- [[file:toupper.cmd][toupper.cmd]]
+- [[file:unix2dos.groovy][unix2dos.groovy]]
+- [[file:validateXml.groovy][validateXml.groovy]]
+- [[file:weather.cmd][weather.cmd]]
+- [[file:weather.ps1][weather.ps1]]
+- [[file:webflow2dot.groovy][webflow2dot.groovy]]
+- [[file:which.cmd][which.cmd]]
+- [[file:which.groovy][which.groovy]]
+- [[file:which.pl][which.pl]]
+- [[file:whocalledme.cmd][whocalledme.cmd]]
+- [[file:wkf.cmd][wkf.cmd]]
+- [[file:working_files.cmd][working_files.cmd]]
