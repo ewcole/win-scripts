@@ -1,0 +1,3 @@
+#+title: Development Diary
+#+options: toc:nil num:nil html-preamble:nil html-postamble:nil ^:{}
+
