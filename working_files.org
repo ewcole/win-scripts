@@ -64,6 +64,7 @@
 - [[file:printables.groovy][printables.groovy]]
 - [[file:ptitle.cmd][ptitle.cmd]]
 - [[file:purge_temp.cmd][purge_temp.cmd]]
+- [[file:pushAll.cmd][pushAll.cmd]]
 - [[file:roots.cmd][roots.cmd]]
 - [[file:roots.groovy][roots.groovy]]
 - [[file:scheduleRestart.groovy][scheduleRestart.groovy]]
