@@ -38,6 +38,7 @@ String getProtocol(String fileName) {
   // println "# ext = $ext"
   def extList = ['html': 'file+emacs',
                  'pdf':  'file+sys',
+                 'dat': 'file+emacs',
                  'service': 'file+emacs']
   String protocol = extList.containsKey(ext)?extList[ext]:'file'
   //println "# protocol=$protocol"
@@ -75,13 +76,10 @@ println """#+TITLE: Working Files
 * Config    :noexport:
 #+STARTUP: content
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
-#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
-#+LANGUAGE: en
 #+SELECT_TAGS: export
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
 #+OPTIONS: html-preamble:nil html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil tex:t
-#+CREATOR: <a href=\"http://www.gnu.org/software/emacs/\">Emacs</a> 24.2.1 (<a href=\"http://orgmode.org\">Org</a> mode 8.2.6)
 #+HTML_CONTAINER: div
 #+HTML_DOCTYPE: xhtml-strict
 
