@@ -76,12 +76,7 @@ println """#+TITLE: Working Files
 * Config    :noexport:
 #+STARTUP: content
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
-#+SELECT_TAGS: export
-#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
-#+OPTIONS: html-preamble:nil html-scripts:t html-style:t
-#+OPTIONS: html5-fancy:nil tex:t
-#+HTML_CONTAINER: div
-#+HTML_DOCTYPE: xhtml-strict
+#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil html-preamble:nil 
 
 """.replaceAll("\r?\n", System.getProperty('line.separator'))
 }
