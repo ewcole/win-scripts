@@ -73,11 +73,8 @@ def printDir(ConfigObject cfg, int level, String dirName, String path) {
 
 def printHeader = {
 println """#+TITLE: Working Files
-* Config    :noexport:
 #+STARTUP: content
-#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \\n:nil ^:{} arch:headline
-#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil html-preamble:nil 
-
+#+OPTIONS: toc:nil num:nil html-preamble:nil html-postamble:nil ^:{} 
 """.replaceAll("\r?\n", System.getProperty('line.separator'))
 }
 
