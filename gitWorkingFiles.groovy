@@ -1,8 +1,8 @@
 def fileList = "git ls-files".execute().text
 def submoduleList = "git ls-files --stage | grep 160000".execute().text
-def gitBranch = "git branch".execute().text.readLines().grep {it =~ /^\*/}.collect {
+def gitBranch = ("git branch".execute().text.readLines().grep {it =~ /^\*/}.collect {
   it.replaceAll(/^\* /,'')
-}.first();
+}?:[]).first();
 def allFiles = new ConfigObject()
 
 def readFiles;
