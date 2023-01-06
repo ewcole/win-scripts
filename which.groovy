@@ -2,6 +2,7 @@
 // which.groovy -- tell us which program is being executed when
 // you type a command at the CMD.EXE command line.
 ///////////////////////////////////////////////////////////////////////////////
+import groovy.cli.commons.CliBuilder
 
 def cli = new CliBuilder(usage: """which [--help] <commandName>
 
