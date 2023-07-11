@@ -1,17 +1,6 @@
 #+TITLE: Working Files
-* Config    :noexport:
 #+STARTUP: content
-#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:{} arch:headline
-#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
-#+LANGUAGE: en
-#+SELECT_TAGS: export
-#+OPTIONS: html-link-use-abs-url:nil html-postamble:nil
-#+OPTIONS: html-preamble:nil html-scripts:t html-style:t
-#+OPTIONS: html5-fancy:nil tex:t
-#+CREATOR: <a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.6)
-#+HTML_CONTAINER: div
-#+HTML_DOCTYPE: xhtml-strict
-
+#+OPTIONS: toc:nil num:nil html-preamble:nil html-postamble:nil ^:{} 
 
 * Files
 - [[file:.gitignore][.gitignore]]
@@ -42,6 +31,7 @@
 - [[file:findstr2org.groovy][findstr2org.groovy]]
 - [[file:freeDrives.groovy][freeDrives.groovy]]
 - [[file:getPath.groovy][getPath.groovy]]
+- [[file:gitChanges2org.cmd][gitChanges2org.cmd]]
 - [[file:gitWorkingFiles.groovy][gitWorkingFiles.groovy]]
 - [[file:google.cmd][google.cmd]]
 - [[file:grails3.cmd][grails3.cmd]]
@@ -56,6 +46,7 @@
 - [[file:latin.cmd][latin.cmd]]
 - [[file:lein.bat][lein.bat]]
 - [[file:listThumbDrives.cmd][listThumbDrives.cmd]]
+- [[file:map.cmd][map.cmd]]
 - [[file:maven.cmd][maven.cmd]]
 - [[file:mvnFind.cmd][mvnFind.cmd]]
 - [[file:newcmd.cmd][newcmd.cmd]]
@@ -65,6 +56,7 @@
 - [[file:ptitle.cmd][ptitle.cmd]]
 - [[file:purge_temp.cmd][purge_temp.cmd]]
 - [[file:pushAll.cmd][pushAll.cmd]]
+- [[file:recurse.cmd][recurse.cmd]]
 - [[file:roots.cmd][roots.cmd]]
 - [[file:roots.groovy][roots.groovy]]
 - [[file:scheduleRestart.groovy][scheduleRestart.groovy]]
