@@ -99,5 +99,7 @@ def printGitState = {
 
 }
 printHeader()
-// printGitState()
+if (args.contains('--gitinfo')) {
+  printGitState()
+}
 printDir(allFiles, 1, "Files", "");
