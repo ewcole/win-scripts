@@ -1,2 +1,3 @@
 @echo off
-groovy %~dp0\which.groovy %*
+rem groovy %~dp0\which.groovy %*
+where %*  | head -n1
