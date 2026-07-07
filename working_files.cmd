@@ -11,8 +11,8 @@ if "%1" == "--theme" (
 if not "%theme%"=="" (
   set themestr=--eval "(load-theme '%theme%)"
 )
-:: echo themestr=%themestr%
-gitWorkingFiles %* > working_files.org
+:: echo themestr=%themestr% 
+gitWorkingFiles.groovy %* > working_files.org
 ::echo runemacs working_files.org --eval (read-only-mode) --eval (auto-revert-mode) %themestr%
 runemacs working_files.org --eval (read-only-mode) --eval (auto-revert-mode) %themestr% %1 %2 %3 %4 %5 %6 %7 %8 %9
 goto :eof
